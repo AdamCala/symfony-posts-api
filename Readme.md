@@ -2,8 +2,8 @@
 
 ## Description
 
-A simple application that gets posts and users from a placeholder json api
-It merges posts and users into a single entity and server it at /api/posts endpoint
+A simple application that gets posts and users from a placeholder json api.
+It merges posts and users into a single entity and serves it at /api/posts endpoint
 
 It is composed by 3 containers:
 
