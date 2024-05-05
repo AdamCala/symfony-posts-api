@@ -27,14 +27,17 @@ It is composed by 3 containers:
 
 5. Use the following value for the DATABASE_URL environment variable:
 
+```
+DATABASE_URL=mysql://app_user:helloworld@db:3306/app_db?serverVersion=8.0.33
+```
+You could change the name, user and password of the database in the `env` file at the root of the project.
+
 6. Run migrations `php bin/console doctrine:migrations:migrate`
 
 7. You can now fetch posts using the `php bin/console app:fetch-posts` command in the container terminal
 
 8. You can access the app at `http://localhost/`
 
-```
-DATABASE_URL=mysql://app_user:helloworld@db:3306/app_db?serverVersion=8.0.33
-```
 
-You could change the name, user and password of the database in the `env` file at the root of the project.
+
+
