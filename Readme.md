@@ -2,7 +2,7 @@
 
 ## Description
 
-A simple application that uses [ger86's symfony-docker boilerplate](https://github.com/ger86/symfony-docker). It fetches posts and users from a placeholder json api and merges posts and users into a single entity serving it at /api/posts endpoint
+A simple application that uses [ger86's symfony-docker boilerplate](https://github.com/ger86/symfony-docker) as a base. It fetches posts and users from a placeholder json api and merges posts and users into a single entity serving it at /api/posts endpoint
 
 It is composed by 3 containers:
 
