@@ -1,39 +1,42 @@
-# 🐳 Docker + PHP 8.2 + MySQL + Nginx + Symfony 6.2 Boilerplate
+# 🎼 Symfony 6 based posts api
 
 ## Description
 
-This is a complete stack for running Symfony 6.2 into Docker containers using docker-compose tool.
+A simple application that gets posts and users from a placeholder json api
+It merges posts and users into a single entity and server it at /api/posts endpoint
 
-It is composed by 4 containers:
+It is composed by 3 containers:
 
 - `nginx`, acting as the webserver.
 - `php`, the PHP-FPM container with the 8.2 version of PHP.
 - `db` which is the MySQL database container with a **MySQL 8.0** image.
 
-## Installation
+## Prerequisites
 
-1. 😀 Clone this repo.
+- Docker
 
-2. If you are working with Docker Desktop for Mac, ensure **you have enabled `VirtioFS` for your sharing implementation**. `VirtioFS` brings improved I/O performance for operations on bind mounts. Enabling VirtioFS will automatically enable Virtualization framework.
+## Local Installation
 
-3. Create the file `./.docker/.env.nginx.local` using `./.docker/.env.nginx` as template. The value of the variable `NGINX_BACKEND_DOMAIN` is the `server_name` used in NGINX.
+1. Clone this repo.
 
-4. Go inside folder `./docker` and run `docker compose up -d` to start containers.
+2. Create the file `./.docker/.env.nginx.local` using `./.docker/.env.nginx` as template. The value of the variable `NGINX_BACKEND_DOMAIN` is the `server_name` used in NGINX.
 
-5. You should work inside the `php` container. This project is configured to work with [Remote Container](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension for Visual Studio Code, so you could run `Reopen in container` command after open the project.
+3. Go inside folder `./docker` and run `docker compose up -d` to start containers.
 
-6. Inside the `php` container, run `composer install` to install dependencies from `/var/www/symfony` folder.
+4. Inside the `php` container, run `composer install` to install dependencies from `/var/www/symfony` folder.
 
-7. Use the following value for the DATABASE_URL environment variable:
+5. Use the following value for the DATABASE_URL environment variable:
+
+6. Create a app_user database `php bin/console doctrine:database:create` (you can use a different name, just remember to edit `env` file accordingly)
+
+7. Run migrations `php bin/console doctrine:migrations:migrate`
+
+8. You can now fetch posts using the `php bin/console app:fetch-posts` command in the container terminal
+
+9. You can access the app at `http://localhost/`
 
 ```
 DATABASE_URL=mysql://app_user:helloworld@db:3306/app_db?serverVersion=8.0.33
 ```
 
 You could change the name, user and password of the database in the `env` file at the root of the project.
-
-## To learn more
-
-I have recorded a Youtube session explaining the different parts of this project. You could see it here:
-
-[Boilerplate para Symfony basado en Docker, NGINX y PHP8](https://youtu.be/A82-hry3Zvw)
