@@ -1,0 +1,43 @@
+.list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.post-list{
+    list-style: none;
+}
+.post {
+    border-bottom: 1px solid #ccc; /* Add a border between posts */
+    padding: 20px 0; /* Add some vertical padding */
+}
+
+.post h2 {
+    margin: 0; /* Remove default margin for title */
+    font-weight: bolder;
+}
+
+.post p {
+    padding-top: 30px;
+    margin: 0 0 10px; /* Add some bottom margin to paragraphs */
+}
+
+.post-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-info p {
+    margin: 0; /* Remove default margin for paragraphs */
+}
+
+.post-info form {
+    margin: 0;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 10px;
+}
+#title{
+    margin: 20px;
+}

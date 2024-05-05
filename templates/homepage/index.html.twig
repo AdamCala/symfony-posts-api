@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Welcome to Our Website!</h1>
+    <p>This is the homepage of our website.</p>
+    
+    {% if app.user %}
+        <p>Welcome, {{ app.user.email }}!</p>
+        <p><a href="{{ path('app_logout') }}">Logout</a></p>
+    {% else %}
+        <p>It seems you are not logged in.</p>
+        <ul>
+            <li><a href="{{ path('app_login') }}">Login</a></li>
+            <li><a href="{{ path('app_register') }}">Register</a></li>
+        </ul>
+    {% endif %}
+
+    <p>Here are some of the things you can do:</p>
+    <ul>
+         {% if app.user %}
+        <li><a href="{{ path('app_lista') }}">View Posts</a></li>
+        {% else %}
+            <li><a href="{{ path('app_register') }}">Create a new account</a></li>
+        {% endif %}
+        <li><a href="{{ path('_api_/posts_get_collection') }}">Access our posts api</a></li>
+        <li>You can also access a specific post by adding /{id} after to the /posts endpoint</li>
+        <!-- Add more links or content as needed -->
+    </ul>
+</div>
+{% endblock %}

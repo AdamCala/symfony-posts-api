@@ -1,21 +1,32 @@
-{% extends 'base.html.twig' %}
+    {% extends 'base.html.twig' %}
 
-{% block title %}List of Posts{% endblock %}
+    {% block title %}List of Posts{% endblock %}
 
-{% block body %}
-<div class="posts">
-    <h1>List of Posts</h1>
-    <ul>
-        {% for post in posts %}
-        <li>
-            <h2>{{ post.title }}</h2>
-            <p>{{ post.body }}</p>
-            <p>Posted by: {{ post.userName }}</p>   
-            <form method="post" action="{{ path('app_delete_post', {'id': post.id}) }}">
-                <button type="submit">Delete</button>
-            </form>
-        </li>
-        {% endfor %}
-    </ul>
-</div>
-{% endblock %}
+    {% block stylesheets %}
+    {{ parent() }}
+        <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    {% endblock %}
+
+    {% block body %}
+    <div class="posts">
+        <h1 id="title">List of Posts</h1>
+        <a href="{{ path('app_homepage') }}">Home</a>
+        <div class="list">
+            <ul class="post-list"> 
+                {% for post in posts %}
+                <li class="post">
+                    <h2>{{ post.title }}</h2>
+                    <p>{{ post.body }}</p>
+                    <div class="post-info">
+                        <p>Posted by: {{ post.userName }}</p>   
+                        <form method="post" action="{{ path('app_delete_post', {'id': post.id}) }}">
+                            <p>{{post.id}}</p>
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endblock %}  
