@@ -27,13 +27,11 @@ It is composed by 3 containers:
 
 5. Use the following value for the DATABASE_URL environment variable:
 
-6. Create a app_user database `php bin/console doctrine:database:create` (you can use a different name, just remember to edit `env` file accordingly)
+6. Run migrations `php bin/console doctrine:migrations:migrate`
 
-7. Run migrations `php bin/console doctrine:migrations:migrate`
+7. You can now fetch posts using the `php bin/console app:fetch-posts` command in the container terminal
 
-8. You can now fetch posts using the `php bin/console app:fetch-posts` command in the container terminal
-
-9. You can access the app at `http://localhost/`
+8. You can access the app at `http://localhost/`
 
 ```
 DATABASE_URL=mysql://app_user:helloworld@db:3306/app_db?serverVersion=8.0.33
