@@ -31,7 +31,7 @@ DATABASE_URL=mysql://app_user:helloworld@db:3306/app_db?serverVersion=8.0.33
 ```
 You could change the name, user and password of the database in the `env` file at the root of the project.
 
-6. Run migrations `php bin/console doctrine:migrations:migrate`
+6. Run migrations `php bin/console doctrine:migrations:migrate` in the php container
 
 7. You can now fetch posts using the `php bin/console app:fetch-posts` command in the container terminal
 
